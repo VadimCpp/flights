@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 
 class Calendar extends Component {
   constructor(props) {
@@ -9,9 +11,15 @@ class Calendar extends Component {
   render() {
     return (
       <div className="calendar">
-        <p class="month">
-        	TODO: icon {this.state.month}
-        </p> 
+        <div class="calendar-header">
+          <FontAwesomeIcon icon={faCalendarAlt} />
+          <span class="month">          
+            {this.state.month}
+          </span> 
+        </div>
+        <div class="calendar-slider">
+          TODO: calendar-slider
+        </div>
       </div>
     )
   }

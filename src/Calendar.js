@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 
 class Calendar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {month: 'April'};
+  }
+  
   render() {
     return (
       <div className="calendar">
-        TODO: calendar  
+        <p class="month">
+        	TODO: icon {this.state.month}
+        </p> 
       </div>
     )
   }

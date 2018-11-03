@@ -1,0 +1,22 @@
+.calendar {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  min-height: 100px;
+  color: #444;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.calendar-slider {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.slider-body {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 3px;
+  position: relative;
+  top: 0;
+  left: 0;
+}

@@ -42,7 +42,7 @@ class Calendar extends Component {
       <div className="calendar">
         <div className="calendar-header">
           <FontAwesomeIcon icon={faCalendarAlt} />
-          <span className="month">          
+          <span className="calendar-header_month">          
             {this.state.month}
           </span> 
         </div>

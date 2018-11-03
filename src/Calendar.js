@@ -11,9 +11,7 @@ class Calendar extends Component {
     super(props);
     
     this.state = {
-      position: 0,
-      step: 100,
-      today: new Date(),
+      currentDate: new Date(),
     };
   }
 
@@ -27,11 +25,11 @@ class Calendar extends Component {
             locale="ru"
             format="MMMM"
           >
-            {this.state.today}
+            {this.state.currentDate}
           </Moment>
         </div>
         <div className="calendar-slider">          
-          <Slider />
+          <Slider currentDate={this.state.currentDate}/>
         </div>
       </div>
     )

@@ -12,6 +12,8 @@
 .App-header_title {
 	color: rgb(51, 114, 226);
 	font-size: 16px;
+	padding: 10px; 
+	margin: 0;
 }
 
 .App-header_title__departure {
@@ -25,4 +27,14 @@
 .App-header_subtitle {
 	font-size: 12px;
 	color: rgba(0, 0, 0, .4);
+}
+
+.App-header_back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 9px; 
+	margin: 0;
+	font-size: 16px;
+	color: rgb(51, 114, 226);
 }

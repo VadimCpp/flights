@@ -1,6 +1,5 @@
 .calendar {  
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  min-height: 100px;
   color: #444;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -17,7 +16,7 @@
 
 .calendar-slider {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  margin-top: 10px;
+  margin: 10px 2px;
 }
 
 .slider-body {

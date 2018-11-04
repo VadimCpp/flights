@@ -14,7 +14,7 @@ class Slider extends Component {
     const listItems = dates.map((date) =>
       <li key={date.toString()} className='slider-item'>
         <p>
-          <Moment locale="ru" format="dd">
+          <Moment locale="ru" format="dd" className='slider-item_day'>
             {date}
           </Moment>
         </p>

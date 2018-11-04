@@ -12,7 +12,11 @@ class Slider extends Component {
       return day;
     });
     const listItems = dates.map((date) =>
-      <li key={date.toString()} className='slider-item'>
+      <li
+        key={date.toString()} 
+        className='slider-item'
+        onClick={()=>{ this.props.onDateClick(date); }}
+      >
         <p>
           <Moment locale="ru" format="dd" className='slider-item_day'>
             {date}

@@ -15,16 +15,12 @@ class Calendar extends Component {
     };
   }
 
-  scrollLeft() {
-    let prevDay = this.state.currentDate;
-    prevDay.setDate(prevDay.getDate() - 1);
-    this.setState({ currentDate: prevDay });
-  }
+  onDateClick(date) {
+    let currentDay = this.state.currentDate;    
+    if (date.getDate() === currentDay.getDate())
+      return;    
 
-  scrollRight() {
-    let nextDay = this.state.currentDate;
-    nextDay.setDate(nextDay.getDate() + 1);
-    this.setState({ currentDate: nextDay });
+    this.setState({ currentDate: date });
   }
 
   render() {    
@@ -39,11 +35,12 @@ class Calendar extends Component {
           >
             {this.state.currentDate}
           </Moment>
-          <button onClick={() => this.scrollLeft()}> Left </button>
-          <button onClick={() => this.scrollRight()}> Right </button>
         </div>
         <div className="calendar-slider">          
-          <Slider currentDate={this.state.currentDate}/>
+          <Slider 
+            currentDate={this.state.currentDate}
+            onDateClick={(date) => {this.onDateClick(date)}}
+          />
         </div>
       </div>
     )

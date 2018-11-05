@@ -34,6 +34,10 @@ class Slider extends Component {
             )
           }
         </p>
+        {date.getTime() === this.props.currentDate.getTime() &&
+            <div className="selection-circle">
+            </div>
+        }
         <p>
           4000+
         </p>      

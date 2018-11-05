@@ -5,8 +5,8 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import './AppHeader.css';
 
 class AppHeader extends Component {
-  moveBack() {
-    alert('Not implemented');
+  moveBack() {    
+    window.location.href = 'https://github.com/VadimCpp/flights';
   }
 
   render() {
@@ -16,14 +16,14 @@ class AppHeader extends Component {
           <span className="App-header_title__departure">Москва</span> 
           <FontAwesomeIcon icon={faPlane} /> 
           <span className="App-header_title__arrival">Тюмень</span>
-    	</h1>
+    	  </h1>
         <p className="App-header_subtitle"> Шаг 1 из 5. Выберите рейс «Туда» </p>
         <button 
           onClick={() => { this.moveBack()}}
           className="App-header_back"
         > 
           <FontAwesomeIcon icon={faChevronLeft} />
-    	</button>
+    	  </button>
       </header>
     )
   }

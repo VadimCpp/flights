@@ -8,10 +8,6 @@ class Details extends Component {
     const date = this.props.date;
     const data = dataByDates[date.getTime()];
 
-    console.log(dataByDates);
-    console.log(date);
-    console.log(data);
-
     let listItems = [];
     if (data) {
       listItems = data.map((obj) => (

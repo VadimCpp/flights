@@ -4,3 +4,40 @@
 	text-transform: uppercase;
 	font-size: 12px;
 }
+
+.details-slider {
+	margin: 0;
+	padding: 0;
+}
+
+.details-item {
+	color: #222;
+	list-style: none;
+	padding: 0 10px;
+	margin-bottom: 50px;
+}
+
+.details-item__headline {
+	display: flex;
+	justify-content: space-between;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+.details-item__time {
+	font-weight: 500;	
+}
+
+.details-item__cost {
+	font-weight: 600;
+	color: rgb(51, 114, 226);
+}
+
+.details-item__secondary {
+	color: rgba(0, 0, 0, .4);
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 5px;
+	text-align: left;
+}

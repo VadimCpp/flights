@@ -24,18 +24,18 @@ class Slider extends Component {
         </p>
         <p>
           {date.getTime() === this.props.currentDate.getTime() ? (
-              <Moment locale="ru" format="D" className="selected-date">
+              <Moment locale="ru" format="D" className="selected-date calendar-header_date">
                 {date}
               </Moment>
             ) : (
-              <Moment locale="ru" format="D">
+              <Moment locale="ru" format="D" className="calendar-header_date">
                 {date}
               </Moment>
             )
           }
         </p>
         <p>
-          5 185+
+          4000+
         </p>      
       </li>
     );

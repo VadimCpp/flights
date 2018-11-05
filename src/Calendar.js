@@ -7,20 +7,8 @@ import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import './Calendar.css';
 
 class Calendar extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      currentDate: new Date(),
-    };
-  }
-
   onDateClick(date) {
-    let currentDay = this.state.currentDate;    
-    if (date.getDate() === currentDay.getDate())
-      return;    
-
-    this.setState({ currentDate: date });
+    this.props.onDateChange(date);    
   }
 
   render() {    
@@ -33,12 +21,12 @@ class Calendar extends Component {
             locale="ru"
             format="MMMM"
           >
-            {this.state.currentDate}
+            {this.props.date}
           </Moment>
         </div>
         <div className="calendar-slider">          
           <Slider 
-            currentDate={this.state.currentDate}
+            currentDate={this.props.date}
             onDateClick={(date) => {this.onDateClick(date)}}
           />
         </div>

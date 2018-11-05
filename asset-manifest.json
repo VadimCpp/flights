@@ -1,13 +1,13 @@
 {
   "main.css": "/flights/static/css/main.951ab7b4.chunk.css",
-  "main.js": "/flights/static/js/main.b833dfd9.chunk.js",
-  "main.js.map": "/flights/static/js/main.b833dfd9.chunk.js.map",
+  "main.js": "/flights/static/js/main.fd0883e3.chunk.js",
+  "main.js.map": "/flights/static/js/main.fd0883e3.chunk.js.map",
   "static/js/1.57b0c27d.chunk.js": "/flights/static/js/1.57b0c27d.chunk.js",
   "static/js/1.57b0c27d.chunk.js.map": "/flights/static/js/1.57b0c27d.chunk.js.map",
   "runtime~main.js": "/flights/static/js/runtime~main.76a8c2e2.js",
   "runtime~main.js.map": "/flights/static/js/runtime~main.76a8c2e2.js.map",
   "static/css/main.951ab7b4.chunk.css.map": "/flights/static/css/main.951ab7b4.chunk.css.map",
   "index.html": "/flights/index.html",
-  "precache-manifest.729a40772619b059ae55017fcf835597.js": "/flights/precache-manifest.729a40772619b059ae55017fcf835597.js",
+  "precache-manifest.bdf9227a581b8c344f3eb6d44e3cbd69.js": "/flights/precache-manifest.bdf9227a581b8c344f3eb6d44e3cbd69.js",
   "service-worker.js": "/flights/service-worker.js"
 }

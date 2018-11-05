@@ -32,7 +32,7 @@ class AppBody extends Component {
       data[i] = {
         'departure': '00:05',
         'arrival': '04:45',
-        'cost': 4000 + i * 5,
+        'cost': 4000 + Math.floor(Math.random() * 11) * 500,
         'key': i,
       }      
     }
@@ -40,9 +40,23 @@ class AppBody extends Component {
   }
 
   onDateChange(date) {
-    let currentDay = this.state.currentDate;    
+    let currentDay = this.state.currentDate;
+    var dataByDates = this.state.dataByDates;
+
     if (date.getDate() === currentDay.getDate())
       return;    
+
+    const delta = [-2, -1, 0, 1, 2];
+    const dates = delta.map((delta) => {
+      let day = new Date(currentDay.getTime());
+      day.setDate(currentDay.getDate() + delta);      
+      return day;
+    });
+    for (let i = 0; i < dates.length; i++) {
+      const date = dates[i];
+      if (!dataByDates[date.getTime()])
+        dataByDates[date.getTime()] = this.generateRandomData();
+    }
 
     this.setState({ currentDate: date });
   }

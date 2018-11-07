@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Calendar from './Calendar.js'
 import Details from './Details.js'
+import './AppBody.css';
 
 class AppBody extends Component {
   constructor(props) {

@@ -22,6 +22,7 @@
 .calendar-header_date {
   padding-left: 1px;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .slider-body {

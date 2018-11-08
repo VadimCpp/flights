@@ -50,7 +50,9 @@ class Calendar extends Component {
             onDateClick={(date) => {this.onDateClick(date)}}
           />
         </div>
-        <Box className="box" pose={this.state.isVisible ? 'visible' : 'hidden'}/>
+        <Box className="box" pose={this.state.isVisible ? 'visible' : 'hidden'}>
+          Body
+        </Box>
       </div>
     )
   }

@@ -9,26 +9,24 @@ import './Calendar.css';
 
 const Box = posed.div({
   visible: { opacity: 1 },
-  hidden: { opacity: 0 }
+  hidden: { opacity: 0.1 }
 });    
 
 class Calendar extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isVisible: true,
     };
   }
 
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ isVisible: !this.state.isVisible });
-    }, 1000);
-  }
-
   onDateClick(date) {
-    this.props.onDateChange(date);    
+    
+    this.setState({isVisible: false});
+    setTimeout(() => {
+      this.props.onDateChange(date);
+      this.setState({isVisible: true});
+    }, 500);
   }
 
   render() {
@@ -44,14 +42,13 @@ class Calendar extends Component {
             {this.props.date}
           </Moment>
         </div>
-        <div className="calendar-slider">          
-          <Slider 
-            currentDate={this.props.date}
-            onDateClick={(date) => {this.onDateClick(date)}}
-          />
-        </div>
         <Box className="box" pose={this.state.isVisible ? 'visible' : 'hidden'}>
-          Body
+          <div className="calendar-slider">          
+            <Slider 
+              currentDate={this.props.date}
+              onDateClick={(date) => {this.onDateClick(date)}}
+            />
+          </div>
         </Box>
       </div>
     )

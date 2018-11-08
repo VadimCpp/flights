@@ -32,3 +32,11 @@
   top: 0;
   left: 0;
 }
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: #ff1c68;
+  transform-origin: 50% 50%;
+  transition-duration: 300;
+}

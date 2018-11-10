@@ -6,17 +6,8 @@ import './AppBody.css';
 class AppBody extends Component {
   constructor(props) {
     super(props);
-
-    const today = new Date();
-    // const delta = [-2, -1, 0, 1, 2];
-    // const dates = delta.map((delta) => {
-    //   let day = new Date(today.getTime());
-    //   day.setDate(today.getDate() + delta);      
-    //   return day;
-    // });
-
     this.state = {
-      currentDate: today,
+      currentDate: new Date(),
       weather: {
         status: 'wait',
         data: null,

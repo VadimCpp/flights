@@ -59,31 +59,6 @@ class Details extends Component {
       );      
     }
 
-    let listItems = [];
-    // if (data) {
-    //   listItems = data.map((obj) => (
-    //     <li
-    //       key = {obj.key}
-    //       className = 'details-item'
-    //     >
-    //       <p className='details-item__headline'>
-    //         <span className='details-item__time'>
-    //           {obj.departure} → {obj.arrival}
-    //         </span>
-    //         <span className='details-item__cost'>
-    //           <small> от </small> {obj.cost} ₽
-    //         </span>
-    //       </p>
-    //       <p className='details-item__secondary'>
-    //         Внуково, VKO - Рощино, TJM
-    //       </p>
-    //       <p className='details-item__secondary'>
-    //         Время в пути: 2 ч 40 мин
-    //       </p>
-    //     </li>
-    //   ));
-    // }
-
     return (
       <div className="details">
 

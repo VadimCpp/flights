@@ -12,21 +12,52 @@ class Details extends Component {
 
     if (weather.status === 'wait') {
       view = (
-        <p className="details-item__secondary">
-          Загружаем...
-        </p>
+        <div className="details-item">
+          <p className="details-item__secondary">
+            Загружаем...
+          </p>
+        </div>
       );
     } else if (weather.status === 'done' && weather.data) {
+      let listItems = weather.data.map((obj) => (
+        <li
+          key = {obj.dt}
+          className = 'details-item'
+        >
+          <p className='details-item__headline'>
+            <span className='details-item__time'>
+              <Moment               
+                locale="ru"
+                format="HH:MM"
+              >
+                {new Date(obj.dt * 1000)}
+              </Moment>
+            </span>
+            <span className='details-item__cost'>
+              {toCelcius(obj.main.temp_min)}..{toCelcius(obj.main.temp_max)}
+            </span>
+          </p>
+          <p className='details-item__secondary'>
+            Ага-ага, это время дня
+          </p>
+          <p className='details-item__secondary'>
+            {obj.weather[0].description}
+          </p>
+        </li>
+      ));    
+
       view = (
-        <p>
-          TODO:
-        </p>
+        <ul className="details-slider">
+          {listItems}
+        </ul>
       );
     } else {
       view = (
-        <p className="details-item__secondary">
-          Ошибка загрузки данных :(
-        </p>
+        <div className="details-item">
+          <p className="details-item__secondary">
+            Нет данных :(
+          </p>
+        </div>
       );      
     }
 
@@ -74,14 +105,14 @@ class Details extends Component {
         <div>
           {view}
         </div>
-
-        <ul className="details-slider">
-          {listItems}
-      	</ul>
-        
       </div>
     )
   }
 }
+
+function toCelcius(temperature) {
+  let result = Math.round(temperature - 273.15);
+  return result > 0 ? '+' + result + '' : '' + result + '';
+};
 
 export default Details;

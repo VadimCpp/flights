@@ -72,6 +72,7 @@ class AppBody extends Component {
   		<Details
           date={this.state.currentDate}
           dataByDates={this.state.dataByDates}
+          weather={this.state.weather}
 	 	  />
       </div>
     )

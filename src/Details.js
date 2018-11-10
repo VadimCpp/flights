@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Moment from 'react-moment';
+import 'moment/locale/ru';
 import './Details.css';
 
 class Details extends Component {
@@ -34,10 +36,25 @@ class Details extends Component {
     }
     return (
       <div className="details">
-        <p className="details-title">Прямые рейсы</p>
+
+        <p className="details-title">
+          <span> 
+            Погода&nbsp;
+          </span>
+          <Moment 
+            className="details-title_date"
+            locale="ru"
+            format="DD MMMM"
+          >
+            {this.props.date}
+          </Moment>
+        </p>
+        
+        <p className="details-title">TODO:</p>
         <ul className="details-slider">
           {listItems}
       	</ul>
+        
       </div>
     )
   }

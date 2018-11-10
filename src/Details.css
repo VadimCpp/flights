@@ -17,6 +17,10 @@
 	margin-bottom: 50px;
 }
 
+.details-item__icon {
+    float: right;
+}
+
 .details-item__headline {
 	display: flex;
 	justify-content: space-between;
@@ -40,4 +44,5 @@
 	margin: 0;
 	margin-bottom: 5px;
 	text-align: left;
+	clear: both;
 }

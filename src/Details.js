@@ -6,7 +6,6 @@ import './Details.css';
 class Details extends Component {
 
   render() {
-    const date = this.props.date;
     const weather = this.props.weather;
     let view;
 
@@ -37,9 +36,7 @@ class Details extends Component {
           </p>
           <p className='details-item__secondary'>
             Ага-ага, это время дня
-          </p>
-          <p className='details-item__secondary'>
-            {obj.weather[0].description}
+            {getIcon(obj)}
           </p>
         </li>
       ));    
@@ -92,7 +89,7 @@ function getTemperature(obj) {
   const tempMin = toCelcius(obj.main.temp_min);
   const tempMax = toCelcius(obj.main.temp_max);
 
-  if (tempMin != tempMax) {
+  if (tempMin !== tempMax) {
     return (
       <span className='details-item__cost'>
         {tempMin}..{tempMax}
@@ -106,5 +103,20 @@ function getTemperature(obj) {
     </span>
   );
 };
+
+function getIcon(obj) {
+  const base = 'http://openweathermap.org/img/w/';
+  const url = base + obj.weather[0].icon + '.png';
+
+  return (
+    <img 
+      src={url} 
+      alt={obj.weather[0].description} 
+      className='details-item__icon'
+      width='35'
+      height='35'
+    />
+  );
+}
 
 export default Details;

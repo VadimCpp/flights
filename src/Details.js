@@ -12,7 +12,7 @@ class Details extends Component {
 
     if (weather.status === 'wait') {
       view = (
-        <p>
+        <p class="details-item__secondary">
           Загружаем...
         </p>
       );

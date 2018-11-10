@@ -73,6 +73,11 @@ class Details extends Component {
             {this.props.date}
           </Moment>
         </p>
+        <p className="details-title">
+          <span> 
+            В Калининграде
+          </span>
+        </p>
 
         <div>
           {view}

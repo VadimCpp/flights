@@ -6,34 +6,55 @@ import './Details.css';
 class Details extends Component {
 
   render() {
-    const dataByDates = this.props.dataByDates;
     const date = this.props.date;
-    const data = dataByDates[date.getTime()];
+    const weather = this.props.weather;
+    let view;
+
+    if (weather.status === 'wait') {
+      view = (
+        <p>
+          Загружаем...
+        </p>
+      );
+    } else if (weather.status === 'done') {
+      view = (
+        <p>
+          TODO:
+        </p>
+      );
+    } else {
+      view = (
+        <p>
+          Ошибка загрузки данных :(
+        </p>
+      );      
+    }
 
     let listItems = [];
-    if (data) {
-      listItems = data.map((obj) => (
-        <li
-          key = {obj.key}
-          className = 'details-item'
-        >
-          <p className='details-item__headline'>
-            <span className='details-item__time'>
-              {obj.departure} → {obj.arrival}
-            </span>
-            <span className='details-item__cost'>
-              <small> от </small> {obj.cost} ₽
-            </span>
-          </p>
-          <p className='details-item__secondary'>
-            Внуково, VKO - Рощино, TJM
-          </p>
-          <p className='details-item__secondary'>
-            Время в пути: 2 ч 40 мин
-          </p>
-        </li>
-      ));
-    }
+    // if (data) {
+    //   listItems = data.map((obj) => (
+    //     <li
+    //       key = {obj.key}
+    //       className = 'details-item'
+    //     >
+    //       <p className='details-item__headline'>
+    //         <span className='details-item__time'>
+    //           {obj.departure} → {obj.arrival}
+    //         </span>
+    //         <span className='details-item__cost'>
+    //           <small> от </small> {obj.cost} ₽
+    //         </span>
+    //       </p>
+    //       <p className='details-item__secondary'>
+    //         Внуково, VKO - Рощино, TJM
+    //       </p>
+    //       <p className='details-item__secondary'>
+    //         Время в пути: 2 ч 40 мин
+    //       </p>
+    //     </li>
+    //   ));
+    // }
+
     return (
       <div className="details">
 
@@ -49,8 +70,11 @@ class Details extends Component {
             {this.props.date}
           </Moment>
         </p>
-        
-        <p className="details-title">TODO:</p>
+
+        <div>
+          {view}
+        </div>
+
         <ul className="details-slider">
           {listItems}
       	</ul>

@@ -8,58 +8,35 @@ class AppBody extends Component {
     super(props);
     
     const today = new Date();
-    const delta = [-2, -1, 0, 1, 2];
-    const dates = delta.map((delta) => {
-      let day = new Date(today.getTime());
-      day.setDate(today.getDate() + delta);      
-      return day;
-    });
-
-    var dataByDates = {};
-    for (let i = 0; i < dates.length; i++) {
-      const date = dates[i];
-      dataByDates[date.getTime()] = this.generateRandomData();
-    }
+    // const delta = [-2, -1, 0, 1, 2];
+    // const dates = delta.map((delta) => {
+    //   let day = new Date(today.getTime());
+    //   day.setDate(today.getDate() + delta);      
+    //   return day;
+    // });
 
     this.state = {
       currentDate: today,
-      dataByDates: dataByDates,
+      weather: {
+        status: 'wait',
+        data: null,
+      },
     };
-  }
-
-  generateRandomData() {    
-    let data = new Array(Math.floor(Math.random() * 11) + 20);
-    for (let i = 0; i < data.length; i++) {
-      data[i] = {
-        'departure': '00:05',
-        'arrival': '04:45',
-        'cost': 4000 + Math.floor(Math.random() * 11) * 500,
-        'key': i,
-      }      
-    }
-    return data;
   }
 
   onDateChange(date) {
     let currentDay = this.state.currentDate;
-    var dataByDates = this.state.dataByDates;
 
     if (date.getDate() === currentDay.getDate())
-      return;    
+      return;
 
-    const delta = [-2, -1, 0, 1, 2];
-    const dates = delta.map((delta) => {
-      let day = new Date(currentDay.getTime());
-      day.setDate(currentDay.getDate() + delta);      
-      return day;
+    this.setState({ 
+      currentDate: date,
+      weather: {
+        status: 'wait',
+        data: null,
+      },
     });
-    for (let i = 0; i < dates.length; i++) {
-      const date = dates[i];
-      if (!dataByDates[date.getTime()])
-        dataByDates[date.getTime()] = this.generateRandomData();
-    }
-
-    this.setState({ currentDate: date });
   }
 
   render() {
@@ -68,12 +45,11 @@ class AppBody extends Component {
         <Calendar 
           date={this.state.currentDate}
           onDateChange={(date) => {this.onDateChange(date)}}
-    	/>
-  		<Details
-          date={this.state.currentDate}
-          dataByDates={this.state.dataByDates}
-          weather={this.state.weather}
-	 	  />
+      	/>
+    		<Details
+            date={this.state.currentDate}
+            weather={this.state.weather}
+  	 	  />
       </div>
     )
   }

@@ -6,7 +6,7 @@ import './AppBody.css';
 class AppBody extends Component {
   constructor(props) {
     super(props);
-    
+
     const today = new Date();
     // const delta = [-2, -1, 0, 1, 2];
     // const dates = delta.map((delta) => {
@@ -24,6 +24,10 @@ class AppBody extends Component {
     };
   }
 
+  componentDidMount() {
+    this.getWeather(new Date());
+  }
+
   onDateChange(date) {
     let currentDay = this.state.currentDate;
 
@@ -37,6 +41,70 @@ class AppBody extends Component {
         data: null,
       },
     });
+
+    this.getWeather(date);    
+  }
+
+  getWeather(date) {
+    // Я вообще против хранения всяких ключей в репозитории,
+    // но в данном случае оставлю ключ публичным.
+    // 
+    // NOTE!
+    // Так же как в тестовых заданиях составляющий не предоставляет ключи,
+    // так же и среднестатистический клиент завязывает разные реги на 
+    // программиста и потом страдает.
+    //
+    // http://api.openweathermap.org/
+    // Login: vadim.cpp at gmail.com 
+    //
+    const apiKey = '1c399c23302f8d89aafc5eede93a843c';
+    const city = 'Kaliningrad,ru';
+    const url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey;
+    const that = this;
+
+    fetch(url)
+    .then(function(response) {      
+      return response.json();
+    })
+    .then(function(responseJson) {
+      console.log(responseJson);
+
+      let weatherDataFound = false;
+      let weatherData = [];
+
+      if (responseJson.list) {
+        for (let i = 0; i < responseJson.list.length; i++) {
+          const listItem = responseJson.list[i];          
+          const listItemDate = new Date(listItem.dt * 1000);
+
+          if (listItemDate.getDay() === date.getDay() &&
+              listItemDate.getMonth() === date.getMonth() &&
+              listItemDate.getYear() === date.getYear()) {
+            
+            weatherDataFound = true;
+            weatherData.push(listItem);
+          }          
+        }
+      }
+
+      if (weatherDataFound) {
+        that.setState({ 
+          currentDate: date,
+          weather: {
+            status: 'done',
+            data: weatherData,
+          },
+        });
+      } else {
+        that.setState({ 
+          currentDate: date,
+          weather: {
+            status: 'error',
+            data: null,
+          },
+        });      
+      }
+    });    
   }
 
   render() {

@@ -12,11 +12,11 @@ class Details extends Component {
 
     if (weather.status === 'wait') {
       view = (
-        <p class="details-item__secondary">
+        <p className="details-item__secondary">
           Загружаем...
         </p>
       );
-    } else if (weather.status === 'done') {
+    } else if (weather.status === 'done' && weather.data) {
       view = (
         <p>
           TODO:
@@ -24,7 +24,7 @@ class Details extends Component {
       );
     } else {
       view = (
-        <p>
+        <p className="details-item__secondary">
           Ошибка загрузки данных :(
         </p>
       );      

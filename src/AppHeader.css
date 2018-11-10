@@ -16,14 +16,6 @@
 	margin: 0;
 }
 
-.App-header_title__departure {
-	padding-right: 10px;
-}
-
-.App-header_title__arrival {
-	padding-left: 7px;
-}
-
 .App-header_subtitle {
 	font-size: 12px;
 	color: rgba(0, 0, 0, .4);

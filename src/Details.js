@@ -27,7 +27,7 @@ class Details extends Component {
             <span className='details-item__time'>
               <Moment               
                 locale="ru"
-                format="HH:MM"
+                format="HH:mm"
               >
                 {new Date(obj.dt * 1000)}
               </Moment>
@@ -35,8 +35,10 @@ class Details extends Component {
             {getTemperature(obj)}
           </p>
           <p className='details-item__secondary'>
-            Ага-ага, это время дня
             {getIcon(obj)}
+            Ага-ага, это время дня <br />
+            И еще строка для красоты
+            
           </p>
         </li>
       ));    

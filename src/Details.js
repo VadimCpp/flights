@@ -33,9 +33,7 @@ class Details extends Component {
                 {new Date(obj.dt * 1000)}
               </Moment>
             </span>
-            <span className='details-item__cost'>
-              {toCelcius(obj.main.temp_min)}..{toCelcius(obj.main.temp_max)}
-            </span>
+            {getTemperature(obj)}
           </p>
           <p className='details-item__secondary'>
             Ага-ага, это время дня
@@ -113,6 +111,25 @@ class Details extends Component {
 function toCelcius(temperature) {
   let result = Math.round(temperature - 273.15);
   return result > 0 ? '+' + result + '' : '' + result + '';
+};
+
+function getTemperature(obj) {
+  const tempMin = toCelcius(obj.main.temp_min);
+  const tempMax = toCelcius(obj.main.temp_max);
+
+  if (tempMin != tempMax) {
+    return (
+      <span className='details-item__cost'>
+        {tempMin}..{tempMax}
+      </span>
+    );
+  }
+
+  return (
+    <span className='details-item__cost'>
+      {tempMin}
+    </span>
+  );
 };
 
 export default Details;

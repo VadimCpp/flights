@@ -39,7 +39,7 @@ class Slider extends Component {
             </div>
         }
         <p>
-          4000+
+          ...
         </p>      
       </li>
     );

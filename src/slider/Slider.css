@@ -9,6 +9,7 @@
 
 .slider-item {
 	list-style: none;
+	min-width: 35px;
 	position: relative;
 }
 

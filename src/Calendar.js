@@ -25,7 +25,7 @@ class Calendar extends Component {
     setTimeout(() => {
       this.props.onDateChange(date);
       this.setState({isVisible: true});
-    }, 500);
+    }, 100);
   }
 
   render() {

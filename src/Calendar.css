@@ -25,6 +25,7 @@
   border: none;
   background: none;
   padding: 0;
+  margin-right: 10px;
   border-bottom: 1px solid rgb(51, 114, 226);
   color: rgb(51, 114, 226);
   cursor: pointer;

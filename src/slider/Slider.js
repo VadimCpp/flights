@@ -39,7 +39,7 @@ class Slider extends Component {
             </div>
         }
         <p>
-          ...
+          <br />
         </p>      
       </li>
     );

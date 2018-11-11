@@ -54,6 +54,12 @@ class Details extends Component {
           <p className="details-item__secondary">
             Нет данных :(
           </p>
+          <img 
+            src="./img/notfound.png" 
+            alt="notfound" 
+            width="128" 
+            height="128"
+          />
         </div>
       );      
     }

@@ -22,10 +22,14 @@
 }
 
 .calendar-header_todaylink {  
+  border: none;
+  background: none;
+  padding: 0;
   border-bottom: 1px solid rgb(51, 114, 226);
   color: rgb(51, 114, 226);
   cursor: pointer;
   float: right;
+  font-size: 14px;
 }
 
 .calendar-header_date {

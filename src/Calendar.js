@@ -21,7 +21,6 @@ class Calendar extends Component {
   }
 
   onDateClick(date) {
-    
     this.setState({isVisible: false});
     setTimeout(() => {
       this.props.onDateChange(date);
@@ -41,6 +40,12 @@ class Calendar extends Component {
           >
             {this.props.date}
           </Moment>
+          <button            
+            onClick={() => { this.onDateClick(this.props.today)}}
+            className="calendar-header_todaylink"
+          >
+            Сегодня
+          </button>
         </div>
         <Box className="box" pose={this.state.isVisible ? 'visible' : 'hidden'}>
           <div className="calendar-slider">          

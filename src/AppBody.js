@@ -6,8 +6,12 @@ import './AppBody.css';
 class AppBody extends Component {
   constructor(props) {
     super(props);
+
+    const today = new Date();
+
     this.state = {
-      currentDate: new Date(),
+      currentDate: today,
+      today: today,
       weather: {
         status: 'wait',
         data: null,
@@ -16,7 +20,7 @@ class AppBody extends Component {
   }
 
   componentDidMount() {
-    this.getWeather(new Date());
+    this.getWeather(this.state.currentDate);
   }
 
   onDateChange(date) {
@@ -104,6 +108,7 @@ class AppBody extends Component {
         <Calendar 
           date={this.state.currentDate}
           onDateChange={(date) => {this.onDateChange(date)}}
+          today={this.state.today}
       	/>
     		<Details
             date={this.state.currentDate}

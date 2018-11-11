@@ -54,7 +54,7 @@ class AppBody extends Component {
     //
     const apiKey = '1c399c23302f8d89aafc5eede93a843c';
     const city = 'Kaliningrad,ru';
-    const url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey;
+    const url = '//api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey;
     const that = this;
 
     fetch(url)

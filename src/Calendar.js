@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import posed from 'react-pose';
 import Moment from 'react-moment';
 import 'moment/locale/ru';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 import Slider from './slider/Slider.js';
 import './Calendar.css';
-
-const Box = posed.div({
-  visible: { opacity: 1 },
-  hidden: { opacity: 0.1 }
-});    
 
 class Calendar extends Component {
   constructor(props) {
@@ -47,14 +42,19 @@ class Calendar extends Component {
             Сегодня
           </button>
         </div>
-        <Box className="box" pose={this.state.isVisible ? 'visible' : 'hidden'}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="box"
+        >
           <div className="calendar-slider">          
             <Slider 
               currentDate={this.props.date}
               onDateClick={(date) => {this.onDateClick(date)}}
             />
           </div>
-        </Box>
+        </motion.div>
       </div>
     )
   }

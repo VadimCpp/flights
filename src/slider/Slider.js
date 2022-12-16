@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+import { motion } from 'framer-motion';
 import 'moment/locale/ru';
 import './Slider.css';
 
@@ -12,7 +13,10 @@ class Slider extends Component {
       return day;
     });
     const listItems = dates.map((date) =>
-      <li
+      <motion.li
+        whileHover={{ scale: 1.2 }}
+        onHoverStart={e => {}}
+        onHoverEnd={e => {}}
         key={date.toString()} 
         className='slider-item'
         onClick={()=>{ this.props.onDateClick(date); }}
@@ -41,7 +45,7 @@ class Slider extends Component {
         <p>
           <br />
         </p>      
-      </li>
+      </motion.li>
     );
 
     return (

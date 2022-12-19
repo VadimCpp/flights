@@ -1,16 +1,26 @@
 .slider {
-	color: #444;
-	display: flex;
-	justify-content: space-around;
-	margin: 0;
-	padding: 0;
-	font-size: 14px;
+	width: 300px;
+	height: 120px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+  margin: 0 auto;
+}
+  
+.slider::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
 
 .slider-item {
 	list-style: none;
 	min-width: 35px;
 	position: relative;
+}
+
+.slider-item__fixed-width {
+	width: 65px;
+	display: inline-block;
 }
 
 .slider-item_day {

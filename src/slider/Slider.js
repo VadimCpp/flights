@@ -5,21 +5,47 @@ import 'moment/locale/ru';
 import './Slider.css';
 
 class Slider extends Component {
-  render() {    
-    const delta = [-2, -1, 0, 1, 2];
-    const dates = delta.map((delta) => {
-      let day = new Date(this.props.currentDate.getTime());
-      day.setDate(this.props.currentDate.getDate() + delta);      
-      return day;
-    });
-    const listItems = dates.map((date) =>
-      <motion.li
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstIdx: -2,
+      lastIdx: 2,
+    };
+    this.scrollObjRef = React.createRef();
+  }
+
+  scrollHandler = (event) => {
+    const element = event.target;
+    const a = element.scrollWidth - element.offsetWidth;
+
+    if (element.scrollLeft > a * 0.95) {
+      this.setState({
+        ...this.state,
+        lastIdx: this.state.lastIdx + 5
+      });
+    }
+  };
+   
+  componentDidMount() {
+    this.scrollObjRef?.current?.addEventListener('scroll', this.scrollHandler);
+  }
+
+  componentWillUnmount() {
+    this.scrollObjRef?.current?.removeEventListener('scroll', this.scrollHandler)
+  }
+
+  renderItem(idx) {
+    let date = new Date();
+    date.setDate(date.getDate() + idx);
+
+    return (
+      <motion.div
         whileHover={{ scale: 1.2 }}
         onHoverStart={e => {}}
         onHoverEnd={e => {}}
-        key={date.toString()} 
-        className='slider-item'
-        onClick={()=>{ this.props.onDateClick(date); }}
+        key={idx} 
+        className="slider-item slider-item__fixed-width"
+        onClick={() => this.props.onDateClick(date)}
       >
         <p>
           <Moment locale="ru" format="dd" className='slider-item_day'>
@@ -27,7 +53,7 @@ class Slider extends Component {
           </Moment>
         </p>
         <p>
-          {date.getTime() === this.props.currentDate.getTime() ? (
+          {date.getDate() === this.props.currentDate.getDate() ? (
               <Moment locale="ru" format="D" className="selected-date calendar-header_date">
                 {date}
               </Moment>
@@ -38,22 +64,34 @@ class Slider extends Component {
             )
           }
         </p>
-        {date.getTime() === this.props.currentDate.getTime() &&
+        {date.getDate() === this.props.currentDate.getDate() &&
             <div className="selection-circle">
             </div>
         }
         <p>
           <br />
-        </p>      
-      </motion.li>
-    );
-
-    return (
-      <ul className="slider">
-        {listItems}
-      </ul>
+        </p>     
+      </motion.div>
     )
-  }  
+  }
+
+  renderItems() {
+    const { firstIdx, lastIdx } = this.state;
+    const items = [];
+    for (let i = firstIdx; i <= lastIdx; i++) {
+      items.push(this.renderItem(i));
+    }
+    return items;
+  }
+
+  render() {
+    return (
+      <div className="slider" ref={this.scrollObjRef}>
+        { this.renderItems() }
+      </div>
+    );
+  }
 }
+
 
 export default Slider;

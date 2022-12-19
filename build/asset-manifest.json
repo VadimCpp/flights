@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/flights/static/css/main.ed9244fc.css",
+    "main.js": "/flights/static/js/main.b2151f22.js",
+    "static/js/787.025e6d9d.chunk.js": "/flights/static/js/787.025e6d9d.chunk.js",
+    "index.html": "/flights/index.html",
+    "main.ed9244fc.css.map": "/flights/static/css/main.ed9244fc.css.map",
+    "main.b2151f22.js.map": "/flights/static/js/main.b2151f22.js.map",
+    "787.025e6d9d.chunk.js.map": "/flights/static/js/787.025e6d9d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed9244fc.css",
+    "static/js/main.b2151f22.js"
+  ]
+}

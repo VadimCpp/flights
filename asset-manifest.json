@@ -1,13 +1,15 @@
 {
-  "main.css": "/flights/static/css/main.f0be15d0.chunk.css",
-  "main.js": "/flights/static/js/main.3dfd27df.chunk.js",
-  "main.js.map": "/flights/static/js/main.3dfd27df.chunk.js.map",
-  "static/js/1.9a2b601f.chunk.js": "/flights/static/js/1.9a2b601f.chunk.js",
-  "static/js/1.9a2b601f.chunk.js.map": "/flights/static/js/1.9a2b601f.chunk.js.map",
-  "runtime~main.js": "/flights/static/js/runtime~main.76a8c2e2.js",
-  "runtime~main.js.map": "/flights/static/js/runtime~main.76a8c2e2.js.map",
-  "static/css/main.f0be15d0.chunk.css.map": "/flights/static/css/main.f0be15d0.chunk.css.map",
-  "index.html": "/flights/index.html",
-  "precache-manifest.39661387f894980d9dd048580d15bbc0.js": "/flights/precache-manifest.39661387f894980d9dd048580d15bbc0.js",
-  "service-worker.js": "/flights/service-worker.js"
+  "files": {
+    "main.css": "/flights/static/css/main.ed9244fc.css",
+    "main.js": "/flights/static/js/main.b2151f22.js",
+    "static/js/787.025e6d9d.chunk.js": "/flights/static/js/787.025e6d9d.chunk.js",
+    "index.html": "/flights/index.html",
+    "main.ed9244fc.css.map": "/flights/static/css/main.ed9244fc.css.map",
+    "main.b2151f22.js.map": "/flights/static/js/main.b2151f22.js.map",
+    "787.025e6d9d.chunk.js.map": "/flights/static/js/787.025e6d9d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed9244fc.css",
+    "static/js/main.b2151f22.js"
+  ]
 }
